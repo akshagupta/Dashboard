@@ -1,13 +1,9 @@
 package org.eclipse.wtp.tutorial;
 
-import java.util.Date;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import com.google.gson.JsonObject;
 
 @XmlRootElement
 public class VipBatchMonitorPojo {

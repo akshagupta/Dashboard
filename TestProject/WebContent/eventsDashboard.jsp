@@ -171,12 +171,12 @@ table.center {
 		<td><%= events[i].getCatalogProviderEventGroupId()  %></td>
 		<td width="30"><% if("active".equalsIgnoreCase(events[i].getStatus())) { %>
 		<div style="text-align: center;">
-		 <img alt="" src="http://d-sjc-00531331:9090/TestProject/green.png"  height="5%" width="25%"/>
+		 <img alt="" src="http://d-sjc-00556736:7070/TestProject/green.png"  height="5%" width="25%"/>
 		</div>
 		<%
 		 } else { %>
 		 <div style="text-align: center;">
-		 	<img alt="" src="http://d-sjc-00531331:9090/TestProject/red.png" height="8%" width="25%"/>
+		 	<img alt="" src="http://d-sjc-00556736:7070/TestProject/red.png" height="8%" width="25%"/>
 		 </div>
 		<%
 		 }

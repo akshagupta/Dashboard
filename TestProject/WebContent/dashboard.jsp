@@ -288,12 +288,12 @@ table.center {
 		<td><%= monitors[i].getServiceName()  %></td>
 		<td width="30"><% if(monitors[i].getBatchStatus() == 7 || monitors[i].getBatchStatus() == 12) { %>
 		<div style="text-align: center;">
-		 <img alt="" src="http://d-sjc-00531331:9090/TestProject/green.png"  height="5%" width="25%"/>
+		 <img alt="" src="http://d-sjc-00556736:7070/TestProject/green.png"  height="5%" width="25%"/>
 		</div>
 		<%
 		 } else  if(monitors[i].getBatchStatus() == 5 || monitors[i].getBatchStatus() == 11) { %>
 		 <div style="text-align: center;">
-		 	<img alt="" src="http://d-sjc-00531331:9090/TestProject/yellow.png" height="8%" width="25%"/>
+		 	<img alt="" src="http://d-sjc-00556736:7070/TestProject/yellow.png" height="8%" width="25%"/>
 		 </div>
 		<%
 		 } else {
@@ -301,7 +301,7 @@ table.center {
 		
 		 <div style="text-align: center;">
 		 <%=monitors[i].getBatchStatus() %>
-		 	<img alt="" src="http://d-sjc-00531331:9090/TestProject/red.png" height="8%" width="25%"/>
+		 	<img alt="" src="http://d-sjc-00556736:7070/TestProject/red.png" height="8%" width="25%"/>
 		 </div>
 		<%
 		  }
@@ -309,12 +309,12 @@ table.center {
 		</td>
 		<td width="30"><% if(monitors[i].getTaskStatus() == 3) { %>
 		<div style="text-align: center;">
-		 <img alt="" src="http://d-sjc-00531331:9090/TestProject/green.png"  height="5%" width="25%"/>
+		 <img alt="" src="http://d-sjc-00556736:7070/TestProject/green.png"  height="5%" width="25%"/>
 		</div>
 		<%
 		 } else { %>
 		 <div style="text-align: center;">
-		 	<img alt="" src="http://d-sjc-00531331:9090/TestProject/yellow.png" height="8%" width="25%"/>
+		 	<img alt="" src="http://d-sjc-00556736:7070/TestProject/yellow.png" height="8%" width="25%"/>
 		 </div>
 		<%
 		}	

@@ -51,7 +51,7 @@ public class BatchMonitor extends HttpServlet {
 		if("QA".equals(environment)) {
 			endpoint="http://vipsvcs.qa.ebay.com/vipsvcs/v1/";
 		} else {
-			endpoint="http://vipsvcs.ebay.com/vipsvcs/v1/";
+			endpoint="http://slc5b01c-7fbb.stratus.slc.ebay.com:8080/vipsvcs/v1/";
 			//http://vipsvcs.ebay.com/vipsvcs/v1/machinesHealth
 		}
 		

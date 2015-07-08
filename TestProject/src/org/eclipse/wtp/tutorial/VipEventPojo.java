@@ -1,5 +1,7 @@
 package org.eclipse.wtp.tutorial;
 
+import java.io.File;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -118,5 +120,21 @@ public class VipEventPojo {
 	}
 	public void setLastModifiedDate(String lastModifiedDate) {
 		this.lastModifiedDate = StringUtilsVIP.nullSafeGet(lastModifiedDate);
+	}
+	
+	public static String getCatalogProviderNameFromFile(String fileName) {
+		String catalogProviderName = "InvalidCatalogProvider";
+		if (fileName != null && fileName.indexOf("_") != -1) {
+			int endIndex = fileName.indexOf("_");
+			catalogProviderName = fileName.substring(0, endIndex);
+		}
+		
+		return catalogProviderName;
+	}
+	
+	public static void main(String[] args) {
+		String req="c:\\tempdf\\partscenter\\lms\\request\\invaluable_sachin_tilloo_AddItem_08262014-141956761_1.xml";
+		File f = new File(req);
+		System.out.println(getCatalogProviderNameFromFile(f.getName()));
 	}
 }
