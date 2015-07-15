@@ -44,7 +44,7 @@ table.center {
  
  	<%
  	String selectedfeedType = (String)request.getAttribute("selectedFeedType");
-	String[] feedTypes = {"All","EventDataFeedTask","ProductInventoryDataFeedTask","LMSCreate","AddItemLMSUpload","ReviseItemLMSUpload","EndItemLMSUpload","AddItemLMSDownload", "ReviseItemLMSDownload", "EndItemLMSDownload", "EndOfFeed", "FeedPopulator", "WorkflowManager", "JobManager", "BatchExecutor"};
+	String[] feedTypes = {"All","InventoryDataFeedTask", "EventDataFeedTask","ProductInventoryDataFeedTask","LMSCreate","AddItemLMSUpload","ReviseItemLMSUpload","EndItemLMSUpload","AddItemLMSDownload", "ReviseItemLMSDownload", "EndItemLMSDownload", "EndOfFeed", "FeedPopulator", "WorkflowManager", "JobManager", "BatchExecutor"};
  	String selected = "";
 				for (String key : feedTypes) {
 					selected = "";
@@ -202,7 +202,9 @@ table.center {
       </tr>
       <tr>
    <td align=left><B>Host Name:</B></td>
-   <td align=left><B>User or Catalog Event Id</B></td>
+   <td align=left><B>Regex</B></td>
+   <td align=left><B>Catalog Provider</B></td>
+   <td align=left><B>Seller</B></td>
    <td align=left><B>Environment</B></td>
    
    <tr>
@@ -221,6 +223,7 @@ table.center {
      <OPTION value="9999" selected>--All--</OPTION>
           
 </SELECT></TD> 
+ 
     <TD align=left >
      <%
        String userId =  (String)request.getAttribute("selectedUserId");
@@ -237,11 +240,53 @@ table.center {
       }
        %>
      </TD>
+     <td align="left" >
+   <select name="catalogprovider"> 
+   <%
+   String selectedCatalogProvider = (String)request.getAttribute("selectedCatalogProvider");
+   if ("whi".equals(selectedCatalogProvider)) {  %>
+	    <OPTION value="whi" selected>whi</OPTION>
+    	<OPTION value="invaluable">invaluable</OPTION>
+     	<OPTION value="sothebys">sothebys</OPTION>
+	 <% } else if("invaluable".equals(selectedCatalogProvider)) {  %>
+	    <OPTION value="whi">whi</OPTION>
+    	<OPTION value="invaluable" selected>invaluable</OPTION>
+     	<OPTION value="sothebys">sothebys</OPTION>
+		  
+	 <% } else if("sothebys".equals(selectedCatalogProvider)) {  %>
+	    <OPTION value="whi">whi</OPTION>
+    	<OPTION value="invaluable" selected>invaluable</OPTION>
+     	<OPTION value="sothebys" selected>sothebys</OPTION>
+		  
+	  <% } else {  %>
+	     <OPTION value="whi">whi</OPTION>
+         <OPTION value="invaluable">invaluable</OPTION>
+         <OPTION value="sothebys">sothebys</OPTION>
+	  <% }
+   %>
+  
+          
+</SELECT></TD>
+<td align="left" >
+     <%
+       String selectedSellerId =  (String)request.getAttribute("selectedSellerId");
+      if(selectedSellerId !=null && !selectedSellerId.equals("null") && !selectedSellerId.equals("") ) {
+     %>
+
+<input type="text" name="sellerid" value="<%=selectedSellerId%>"/>
+   <%
+      } else {
+     %>
+      <INPUT  type="text" name="sellerid" value="autozone">
+      <%
+      }
+       %>
+</td>
        <td align="left" >
    <select name="environment"> 
    <%
      String environment = (String)request.getAttribute("environment");
-  	 String [] environments = {"QA", "Production"};
+  	 String [] environments = {"Production", "QA"};
 	selected = "";
 				for (String key : environments) {
 					selected = "";

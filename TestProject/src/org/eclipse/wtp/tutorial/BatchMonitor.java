@@ -41,7 +41,16 @@ public class BatchMonitor extends HttpServlet {
 		String ebayUserId = req.getParameter("UserId");
 		
 		String environment = (String)req.getParameter("environment");
+		String catalogProvider = (String) req.getParameter("catalogprovider");
+		String sellerid=(String)req.getParameter("sellerid");
 		
+		if(sellerid == null || sellerid.trim().equals("") || sellerid.equals("null")){
+			sellerid="DavisAutomotive2014";
+		}
+		
+		if(catalogProvider == null) {
+			catalogProvider = "whi";
+		}
 		Date date = getDateDiff(jobDurationInt);
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -52,11 +61,15 @@ public class BatchMonitor extends HttpServlet {
 			endpoint="http://vipsvcs.qa.ebay.com/vipsvcs/v1/";
 		} else {
 			endpoint="http://vipsvcs.ebay.com/vipsvcs/v1/";
+			endpoint="http://vipsvcs-phx-1-web-envhuytu3rr39d56.stratus.phx.ebay.com/vipsvcs/v1/";
+			
+			//http://vipsvcs-phx-1-web-envhuytu3rr39d56.stratus.phx.ebay.com/vipsvcs/v1/removeMachine?machineName=phx8b03c-b114&newMachineName=chd1b02c-c070 
+
 			//http://vipsvcs.ebay.com/vipsvcs/v1/machinesHealth
 		}
 		
 		System.out.println("endpoint "+endpoint);
-		ClientResponse response = RestClientUtil.get(endpoint+"batchmonitor?inceptionCreationDate="+dt, "application/json");
+		ClientResponse response = RestClientUtil.get(endpoint+"batchmonitor?inceptionCreationDate="+dt+"&catalogProvider="+catalogProvider+"&sellerId="+sellerid, "application/json");
 		String output = response.getEntity(String.class);
 		String rlogid = response.getHeaders().get("RLogId").get(0);
 		System.out.println("Rlogid "+rlogid);
@@ -117,6 +130,10 @@ public class BatchMonitor extends HttpServlet {
 		req.setAttribute("environment",environment);
 		req.setAttribute("selectedTaskStatus", taskStatus);
 		req.setAttribute("selectedBatchStatus", batchStatus);
+		
+		req.setAttribute("selectedCatalogProvider", catalogProvider);
+		req.setAttribute("selectedSellerId", sellerid);
+		
 		req.getRequestDispatcher("/dashboard.jsp").forward(req,resp);
 	}
 	
