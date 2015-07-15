@@ -1,6 +1,5 @@
 package org.eclipse.wtp.tutorial;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 

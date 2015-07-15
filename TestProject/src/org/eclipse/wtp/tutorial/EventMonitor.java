@@ -1,7 +1,6 @@
 package org.eclipse.wtp.tutorial;
 
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ import com.sun.jersey.api.client.ClientResponse;
 public class EventMonitor extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("Came here 1");
+		System.out.println("Came here 2");
 		String userAgent =  req.getHeader("user-agent");
 		String clientBrowser =  "Not known!";
 		String jobType = req.getParameter("JobType");

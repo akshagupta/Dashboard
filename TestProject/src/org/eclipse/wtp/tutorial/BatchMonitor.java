@@ -62,10 +62,6 @@ public class BatchMonitor extends HttpServlet {
 		} else {
 			endpoint="http://vipsvcs.ebay.com/vipsvcs/v1/";
 			endpoint="http://vipsvcs-phx-1-web-envhuytu3rr39d56.stratus.phx.ebay.com/vipsvcs/v1/";
-			
-			//http://vipsvcs-phx-1-web-envhuytu3rr39d56.stratus.phx.ebay.com/vipsvcs/v1/removeMachine?machineName=phx8b03c-b114&newMachineName=chd1b02c-c070 
-
-			//http://vipsvcs.ebay.com/vipsvcs/v1/machinesHealth
 		}
 		
 		System.out.println("endpoint "+endpoint);
